@@ -285,9 +285,17 @@ document.addEventListener('DOMContentLoaded', function() {
 		var text = "";
   		var i;
   			for (i = 0; i < autoCompleteResult.length; i++) {
-    			text += '<p>'+autoCompleteResult[i] + '</p>';
+    			text += '<input type="text" id="visible-input" value="'+autoCompleteResult[i] + '" readonly>';
+				// Copy to clipboard example
+			document.querySelector("#result").onclick = function() {
+  			// Select the content
+  			document.querySelector("#visible-input").select();
+  			// Copy to the clipboard
+  			document.execCommand('copy');
+			};
 			}
 			document.getElementById("result").innerHTML = text;
+			
 	});
 });
 
