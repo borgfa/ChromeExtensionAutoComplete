@@ -1,4 +1,4 @@
-var tags = ["xmestres@userzoom.com",
+var emails = ["xmestres@userzoom.com",
 "jibanez@userzoom.com",
 "mtortosa@userzoom.com",
 "fdelcastillo@userzoom.com",
@@ -281,7 +281,7 @@ $("#autocomplete").keydown(function(){
 	$("#autocomplete").autocomplete({
 		source: function( request, response ) {
     		var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-        	response( $.grep( tags, function( item ){
+        	response( $.grep( emails, function( item ){
         		return matcher.test( item );
         	})
 		)}
@@ -293,5 +293,7 @@ $("#autocomplete").keydown(function(){
  	// Copy to the clipboard
  	document.execCommand('copy');
 	$('#wrapper').css({"height": "100%"});
+	$("#wrapper").append("<div id='okMessage'><p>Email copied to clipboard successfully</p></div>");
+	$('#okMessage').css({"text-align": "center", "font-size":"1em","font-weight":"bold"});
 };
 });
