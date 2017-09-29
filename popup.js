@@ -277,7 +277,7 @@ var tags = ["xmestres@userzoom.com",
 "marketing@userzoom.com",
 "adoyle@userzoom.com"];
 $("#autocomplete").keydown(function(){
-	$('#wrapper').css({"height": "500px"});
+	$('#wrapper').css({"height": "600px"});
 	$("#autocomplete").autocomplete({
 		source: function( request, response ) {
     		var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
@@ -292,5 +292,6 @@ $("#autocomplete").keydown(function(){
  	document.querySelector("#autocomplete").select();
  	// Copy to the clipboard
  	document.execCommand('copy');
+	$('#wrapper').css({"height": "100%"});
 };
 });
