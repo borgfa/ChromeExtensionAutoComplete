@@ -1,38 +1,6 @@
-@charset "utf-8";
-h2{
-	font-family: "Lucida Console", Monaco, monospace;
-	font-size:1.2em;
-}
-#inputUser > input:focus{
-    outline: none;
-}
-#inputUser > input[type=text]{
-	border-radius:25px;
-	border:1px solid #06C;
-	padding:10px;
-	margin-left:5px;
-	width: 200px;
-}
-
-#result > input:focus{
-    outline: none;
-}
-#result > input[type=text]{
-	border-radius:0px;
-	border: none;
-	border-bottom:1px solid  #06C;
-	padding:10px;
-	margin-left:5px;
-	width: 200px;
-}
-#result > input[type=text]:hover{
-	border-radius:0px;
-	border: none;
-	border-bottom:1px solid  #06C;
-	padding:10px;
-	margin-left:5px;
-	width: 100%;
-	background-color: #CFF;
+#wrapper{
+	background-color:#fff;
+	height:100%;
 }
 img{
 	margin-left:15px;
@@ -43,7 +11,22 @@ img{
 	margin:0 auto;
 	text-align:center;
 }
-#result{
-	margin-top:5px;
-	height: 100%;
+
+#inputUser{
+	padding:5px;
+	text-align:center;
+	font-size:1.2em;
+	font-family: "Lucida Console", Monaco, monospace;
+}
+#inputUser > input:focus{
+    outline: none;
+}
+#inputUser > input[type=text]{
+	border:none;
+	border-bottom:1px solid #06C;
+	padding:10px;
+	margin-left:5px;
+	width: 200px;
+	font-size:1.2em;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }

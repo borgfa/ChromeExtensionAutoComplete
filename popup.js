@@ -1,5 +1,4 @@
-//Array of UZ emails
-var people = ["xmestres@userzoom.com",
+var tags = ["xmestres@userzoom.com",
 "jibanez@userzoom.com",
 "mtortosa@userzoom.com",
 "fdelcastillo@userzoom.com",
@@ -277,33 +276,21 @@ var people = ["xmestres@userzoom.com",
 "amora@userzoom.com",
 "marketing@userzoom.com",
 "adoyle@userzoom.com"];
-var text = '';
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#emailAddress').addEventListener('keyup', function() {
-    input_field = document.getElementById('emailAddress').value;
-		autoCompleteResult = matchPeople(input_field);
-		var text = "";
-  		var i;
-  			for (i = 0; i < autoCompleteResult.length; i++) {
-    			text += '<input type="text" id="visible-input" value="'+autoCompleteResult[i] + '" readonly>';
-				// Copy to clipboard example
-			document.querySelector("#result").onclick = function() {
-  			// Select the content
-  			document.querySelector("#visible-input").select();
-  			// Copy to the clipboard
-  			document.execCommand('copy');
-			};
-			}
-			document.getElementById("result").innerHTML = text;
-			
+$("#autocomplete").keydown(function(){
+	$('#wrapper').css({"height": "500px"});
+	$("#autocomplete").autocomplete({
+		source: function( request, response ) {
+    		var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
+        	response( $.grep( tags, function( item ){
+        		return matcher.test( item );
+        	})
+		)}
 	});
+	// Copy to clipboard example
+	document.querySelector("#autocomplete").onclick = function() {
+ 	// Select the content
+ 	document.querySelector("#autocomplete").select();
+ 	// Copy to the clipboard
+ 	document.execCommand('copy');
+};
 });
-
-	function matchPeople(input) {
-	  var reg = new RegExp(input.split('').join('\\w*').replace(/\W/, ""), 'i');
-	  return people.filter(function(person) {
-		if (person.match(reg)) {
-		  return person;
-		}
-	  });
-	}
