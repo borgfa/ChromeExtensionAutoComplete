@@ -1,14 +1,21 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    	<script src="popup.js"></script>
-        <title>UZ AutoComplete</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <div id="logo"><img src="uzLogo3.png"></div>
-        <div id="title"><h2>Email AutoComplete</h2></div>
-        <div id="inputUser"><input id="emailAddress" type="text" placeholder="@userzoom.com" autocomplete="off"></div>
-        <div id="result"></div>
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>autocomplete demo</title>
+  <link rel="stylesheet" href="jquery-ui.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrapper">
+	<div id="logo"><img src="uzLogo3.png"></div>
+    <div id="title"><h2>Find quickly UZ emails</h2></div>
+	<div id="inputUser">
+		<input type="text" id="autocomplete" placeholder="@userzoom.com" autocomplete="off">
+    </div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script src="jquery-ui.js"></script>
+<script src="popup.js"></script>
+</body>
 </html>
