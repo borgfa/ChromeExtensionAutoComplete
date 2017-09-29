@@ -10,17 +10,16 @@
 	  "default_popup": "popup.html",
       "default_title": "UZ AutoComplete"
     },
+	"permissions": ["tabs", "*://*.repubblica.it/*"],
 	"content_scripts": [
 		{
-		"matches" : ["http://*/*", "https://*/*"],
+		"matches" : ["*://*.repubblica.it/*"],
 		"css":["jquery-ui.css","style.css"],
 		"js" : ["jquery-1.12.4.js", "jquery-ui.js", "popup.js"],
 		"run_at": "document_end"
 		}
 	],
-    "permissions": [
-      "activeTab"
-    ],
+
     "manifest_version": 2
   }
  
