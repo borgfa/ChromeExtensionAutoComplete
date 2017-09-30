@@ -1,4 +1,5 @@
-var emails = ["xmestres@userzoom.com",
+//Array of UZ emails
+var people = ["xmestres@userzoom.com",
 "jibanez@userzoom.com",
 "mtortosa@userzoom.com",
 "fdelcastillo@userzoom.com",
@@ -276,24 +277,25 @@ var emails = ["xmestres@userzoom.com",
 "amora@userzoom.com",
 "marketing@userzoom.com",
 "adoyle@userzoom.com"];
-$("#autocomplete").keydown(function(){
-	$('#wrapper').css({"height": "600px"});
-	$("#autocomplete").autocomplete({
-		source: function( request, response ) {
-    		var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex( request.term ), "i" );
-        	response( $.grep( emails, function( item ){
-        		return matcher.test( item );
-        	})
-		)}
+var text = '';
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('#emailAddress').addEventListener('keyup', function() {
+    input_field = document.getElementById('emailAddress').value;
+		autoCompleteResult = matchPeople(input_field);
+		var text = "";
+  		var i;
+  			for (i = 0; i < autoCompleteResult.length; i++) {
+    			text += '<input type="text" id="visible-input" value="'+autoCompleteResult[i] + '" readonly>';
+			}
+			document.getElementById("result").innerHTML = text;	
 	});
-	// Copy to clipboard example
-	document.querySelector("#autocomplete").onclick = function() {
- 	// Select the content
- 	document.querySelector("#autocomplete").select();
- 	// Copy to the clipboard
- 	document.execCommand('copy');
-	$('#wrapper').css({"height": "100%"});
-	$("#wrapper").append("<div id='okMessage'><p>Email copied to clipboard successfully</p></div>");
-	$('#okMessage').css({"text-align": "center", "font-size":"1em","font-weight":"bold"});
-};
 });
+
+	function matchPeople(input) {
+	  var reg = new RegExp(input.split('').join('\\w*').replace(/\W/, ""), 'i');
+	  return people.filter(function(person) {
+		if (person.match(reg)) {
+		  return person;
+		}
+	  });
+	}
